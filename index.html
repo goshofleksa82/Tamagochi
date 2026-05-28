@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tamagotchi</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app">
+      <section class="shell">
+        <div class="topbar">
+          <div>
+            <p class="eyebrow">Tamagotchi</p>
+            <h1 id="petName">No pet yet</h1>
+          </div>
+          <button id="resetBtn" class="icon-button" title="New pet" aria-label="New pet">+</button>
+        </div>
+
+        <section id="choicePanel" class="choice-panel hidden">
+          <p id="saveSummary" class="save-summary">Saved game found</p>
+          <div class="choice-actions">
+            <button id="continueBtn" type="button">Continue</button>
+            <button id="newGameBtn" type="button" class="secondary-button">New game</button>
+          </div>
+        </section>
+
+        <section id="createPanel" class="create-panel hidden">
+          <form id="createForm">
+            <label for="nameInput">Name your pet</label>
+            <div class="form-row">
+              <input id="nameInput" name="name" maxlength="24" placeholder="Pixel" autocomplete="off">
+              <button type="submit">Start</button>
+            </div>
+          </form>
+        </section>
+
+        <section id="gamePanel" class="game-panel hidden">
+          <div class="screen" aria-live="polite">
+            <div id="petSprite" class="pet-sprite" aria-hidden="true">
+              <div class="ear ear-left"></div>
+              <div class="ear ear-right"></div>
+              <div class="body">
+                <div class="pattern pattern-one"></div>
+                <div class="pattern pattern-two"></div>
+                <div class="face">
+                  <span class="eye eye-left"></span>
+                  <span class="eye eye-right"></span>
+                  <span class="nose"></span>
+                  <span class="mouth"></span>
+                </div>
+                <div class="belly"></div>
+                <div class="paw paw-left"></div>
+                <div class="paw paw-right"></div>
+              </div>
+              <div class="tail"></div>
+            </div>
+            <p id="petMood" class="mood">Ready</p>
+            <p id="petAge" class="age">Age 0m</p>
+            <p id="timeFactor" class="time-factor">Stats change every 30s</p>
+          </div>
+
+          <div id="endPanel" class="end-panel hidden">
+            <strong>Game over</strong>
+            <span>One of your pet's care stats reached zero. Start a new game to try again.</span>
+          </div>
+
+          <div class="actions" aria-label="Care actions">
+            <button data-action="feed">Feed</button>
+            <button data-action="play">Play</button>
+            <button data-action="sleep">Sleep</button>
+            <button data-action="clean">Clean</button>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <span>Food</span>
+              <div class="meter"><div id="hungerBar"></div></div>
+              <strong id="hungerValue">0</strong>
+            </div>
+            <div class="stat">
+              <span>Happy</span>
+              <div class="meter"><div id="happinessBar"></div></div>
+              <strong id="happinessValue">0</strong>
+            </div>
+            <div class="stat">
+              <span>Energy</span>
+              <div class="meter"><div id="energyBar"></div></div>
+              <strong id="energyValue">0</strong>
+            </div>
+            <div class="stat">
+              <span>Clean</span>
+              <div class="meter"><div id="cleanlinessBar"></div></div>
+              <strong id="cleanlinessValue">0</strong>
+            </div>
+          </div>
+
+          <form id="renameForm" class="rename-form">
+            <input id="renameInput" maxlength="24" aria-label="Rename pet">
+            <button type="submit">Rename</button>
+          </form>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
